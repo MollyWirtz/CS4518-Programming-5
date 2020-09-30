@@ -1,7 +1,9 @@
 package com.bignerdranch.android.basketballscore
 
+import android.app.Activity
 import android.content.res.AssetFileDescriptor
 import android.content.res.AssetManager
+import android.media.MediaPlayer
 import android.media.SoundPool
 import android.util.Log
 import java.lang.Exception
@@ -17,6 +19,8 @@ class SoundManager (private val assets: AssetManager) {
         .setMaxStreams(MAX_SOUNDS)
         .build()
 
+
+
     init {
         sounds = loadSounds()
     }
@@ -27,12 +31,8 @@ class SoundManager (private val assets: AssetManager) {
         }
     }
 
-    fun playSound (identifier: String) {
-        if (identifier == "A") {
-            play(sounds[0])
-        } else {
-            play(sounds[1])
-        }
+    fun playSoundPool () {
+        play(sounds[0])
     }
 
     fun loadSounds(): List<Sound> {
